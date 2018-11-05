@@ -1,0 +1,199 @@
+/*********************************************************************
+ * base style less file
+ * Created by deming-su on 2017/12/30
+ *********************************************************************/
+
+
+/* 整体背景样式 ---start--- */
+.application-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* 整体背景样式 ---end--- */
+
+
+/* 通用颜色值定义 ---start--- */
+@primary-color: #407dd1;
+@primary-color-light: #62a5ff;
+@primary-color-dark: #27508d;
+@parallax-color: #79eead; // 普通
+@success-color: #3cbb5b; // 成功
+@warning-color: #ff8441; // 警告
+@error-color: #d93b25; // 错误
+@font-color-dark: #333; // 标题
+@font-color: #666; // 文字内容
+@font-color-light: #999; // 失效文字
+@border-color: #dcdcdc; // 边框色
+@border-color-input: #ccc; // 边框色
+@border-color-focus: #66afe9;
+@bg-color-dark: #333743; // 背景色  深色
+@bg-color: #d9dee4; // 背景色  普通
+@bg-color-light: #f0f0f0; // 背景色  浅色
+@bg-color-white: #ffffff;
+@bg-color-black: #000000;
+@input-font-color: #555;
+/* 按钮相关颜色 */
+@bg-button-primary: #407dd1;
+@bg-hover-primary: #62a5ff;
+@bg-disable-primary: #81a5d7;
+@font-disable-primary: #c2d5f0;
+@bg-button-success: #3cbb5b;
+@bg-hover-success: #79eead;
+@bg-disable-success: #8ad69d;
+@font-disable-success: #e0f4e5;
+@bg-button-warning: #ff8441;
+@bg-hover-warning: #ffa33f;
+@bg-disable-warning: #ffb58d;
+@font-disable-warning: #fff3ec;
+@bg-button-error: #d93b25;
+@bg-hover-error: #d95326;
+@bg-disable-error: #e8897c;
+/* 输入框禁用 */
+@bg-input-disabled: #eee;
+/*警告框相关颜色*/
+@border-primary-alarm: #9cbbe7;
+@bg-primary-alarm: #ecf2fa;
+@border-success-alarm: #b1e4bd;
+@bg-success-alarm: #ebf8ee;
+@border-warning-alarm: #ffceb3;
+@bg-warning-alarm: #fff2ec;
+@border-danger-alarm: #f0b1a8;
+@bg-danger-alarm: #fbebe9;
+/* 通用颜色值定义 ---end--- */
+
+/* 自定义颜色值定义 ---start--- */
+@menu-bg-c0: #001529;
+@menu-bg-c1: #000c17;
+@menu-bg-c2: #2d8cf0;
+@nav-user-c0: #162849;
+@main-view-c0: #f5f7f9;
+/* 自定义颜色值定义 ---end--- */
+
+/* 屏幕media query宽度 ---start--- */
+@scSmall: 1080px;
+/* 屏幕media query宽度 ---end--- */
+
+
+/* 通用样式方法 ---start--- */
+
+/* 背景色属性 */
+.bg-color(@color: @bg-color-white) {
+    background-color: @color;
+}
+
+/* border 属性 */
+.border(@width: 1px, @type: solid, @color: @border-color) {
+    border: @width @type @color;
+}
+
+/* 触摸样式 */
+.touch() {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* 文字截断 */
+.text-overflow-ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*transition动画函数定义*/
+.transition(@type: all; @time: .2s; @status: linear) {
+    -webkit-transition: @type @time @status;
+    -o-transition: @type @time @status;
+    transition: @type @time @status;
+}
+
+/* transform */
+.transform(@type) {
+    -webkit-transform: @type;
+    -moz-transform: @type;
+    -ms-transform: @type;
+    -o-transform: @type;
+    transform: @type;
+}
+
+/*boxshadow样式函数*/
+.shadow(@size1: 0; @size2: 0; @size3: 20px; @color: rgba(51, 51, 51, .4)) {
+    -webkit-box-shadow: @size1 @size2 @size3 @color;
+    -moz-box-shadow: @size1 @size2 @size3 @color;
+    box-shadow: @size1 @size2 @size3 @color;
+}
+
+/*通用块bosshadow样式*/
+.block-shadow() {
+    -webkit-box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.2);
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.2);
+}
+
+
+/*倒角函数*/
+.border-radius(@size: 4px;) {
+    -webkit-border-radius: @size;
+    border-radius: @size;
+}
+
+/*透明度函数*/
+.opacity (@size: 0.5;) {
+    -moz-opacity: @size;
+    -khtml-opacity: @size;
+    -webkit-opacity: @size;
+    opacity: @size;
+}
+
+/*字体库设置*/
+.iconfont(@size: 16px,@color: @bg-button-primary) {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    font-size: @size;
+    color: @color;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*清浮动*/
+.cls-float() {
+    zoom: 1;
+    &:after {
+        content: '';
+        display: block;
+        width: 0;
+        clear: both;
+        visibility: hidden;
+        font-size: 0;
+        height: 0;
+    }
+}
+
+/* 按钮样式 */
+.button-container {
+    display: block;
+    .cls-float();
+    >.submit,
+    >.cancel {
+        float: right;
+        margin-left: 20px;
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        font-size: 14px;
+        color: @font-color-dark;
+        .border(@color: @font-color-light);
+        .border-radius();
+        .touch();
+    }
+    >.submit {
+        border-color: @bg-button-success;
+        color: @bg-button-success;
+    }
+}

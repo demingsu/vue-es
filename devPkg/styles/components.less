@@ -1,0 +1,40 @@
+/* Toast提示框样式 ---start--- */
+.toast-container {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  text-align: center;
+  .make-toast-cls();
+  z-index: 99999;
+  overflow: hidden;
+  >span {
+    display: block;
+    width: 100%;
+    padding: 6px 10px;
+    line-height: 22px;
+    font-size: 14px;
+  }
+}
+.make-toast-cls() {
+  @list: info success danger warning;
+  @colors: @bg-disable-success @bg-button-success @bg-button-warning @bg-hover-warning;
+  @bgs: @bg-success-alarm @border-success-alarm @border-warning-alarm @bg-warning-alarm;
+  .loop(@index: 1) when(@index <= length(@list)) {
+    @item: extract(@list, @index);
+    @color: extract(@colors, @index);
+    @bg: extract(@bgs, @index);
+    &.@{item}-msg-label {
+      .border-radius();
+      .border(@color: @color);
+      >span {
+        .bg-color(@bg);
+        color: @color;
+      }
+    }
+    .loop(@index + 1);
+  }
+  .loop();
+}
+/* Toast提示框样式 ---end--- */

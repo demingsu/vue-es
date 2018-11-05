@@ -1,0 +1,238 @@
+/*********************************************************************
+ * project private common style less file
+ * Created by deming-su on 2017/12/30
+ *********************************************************************/
+
+/* 项目布局 ---start--- */
+.application-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  > .navigator-container {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 240px;
+    height: 60px;
+    padding: 10px 0;
+    line-height: 40px;
+    font-size: 1.125rem;
+    background: @bg-color-white;
+    border-bottom: solid 1px @border-color;
+    .transition();
+    &.collapse {
+      left: 65px;
+    }
+  }
+  > .menu-container {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background: @menu-bg-c0;
+    .transition();
+    &.collapse {
+      width: 65px;
+    }
+  }
+  > .view-container {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 240px;
+    padding: 15px;
+    overflow-y: auto;
+    .bg-color(@main-view-c0);
+    z-index: 8;
+    .transition();
+    &.collapse {
+      left: 65px;
+    }
+    >.container {
+      display: block;
+      height: 100%;
+      overflow-x: hidden;
+    }
+  }
+}
+
+/* 项目布局 ---end--- */
+
+/* 导航条样式 ---start--- */
+.navigator-container {
+  >.container {
+    display: block;
+    position: relative;
+    height: 100%;
+    >.collapse-btn {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background: url("../../images/common/collapse.png") center center / 26px 26px no-repeat;
+      .transition();
+      .touch();
+      &.collapse {
+        transform: rotate(180deg);
+      }
+    }
+    >.router-info {
+      display: block;
+      height: 40px;
+      margin-left: 76px;
+      .cls-float();
+      >span {
+        position: relative;
+        float: left;
+        padding: 0 8px;
+        font-size: 1.4rem;
+        color: @font-color-dark;
+        font-weight: 200;
+        .touch();
+        &:last-child {
+          font-weight: 700;
+        }
+        &:before {
+          content: '/';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: -3px;
+          width: 6px;
+          text-align: center;
+        }
+        &:first-child:before {
+          content: '';
+        }
+      }
+    }
+    >.btn-box {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      height: 40px;
+      width: 170px;
+      >.full-btn {
+        display: inline-block;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        background: url("../../images/common/full-screen.png") center center / 23px 23px no-repeat;
+        .touch();
+        &.active {
+          background: url("../../images/common/normal-screen.png") center center / 23px 23px no-repeat;
+        }
+      }
+      >.user-info {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 60px;
+        height: 40px;
+        padding-left: 36px;
+        margin-left: 8px;
+        .touch();
+        >.icon {
+          display: block;
+          position: absolute;
+          top: 5px;
+          left: 0;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          .border-radius(30px);
+          .bg-color(@nav-user-c0);
+          color: @bg-color-white;
+        }
+      }
+    }
+  }
+}
+/* 导航条样式 ---end--- */
+
+/* 左侧菜单样式 ---end--- */
+.menu-container {
+  >.log {
+    display: block;
+    height: 60px;
+    padding: 10px;
+    >span {
+      display: block;
+      width: 160px;
+      height: 40px;
+      margin: auto;
+      line-height: 40px;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-align: center;
+      color: @bg-color-white;
+      .border-radius(8px);
+      border-bottom-left-radius: 0;
+      .bg-color(@menu-bg-c2);
+    }
+  }
+  &.collapse {
+    >.log {
+      >span {
+        width: 40px;
+      }
+    }
+  }
+  >.container {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  .el-menu {
+    border-right: none;
+  }
+  .el-submenu__title,
+  .el-menu-item {
+    color: rgba(255, 255, 255, .7);
+    background-color: @menu-bg-c0;
+    &:focus,
+    &:hover {
+      color: @bg-color-white;
+      i {
+        color: @bg-color-white;
+      }
+    }
+  }
+  .el-submenu__title {
+    i {
+      color: rgba(255, 255, 255, .7);
+    }
+  }
+  .el-menu--inline {
+    .el-submenu__title,
+    .el-menu-item {
+      background-color: @menu-bg-c1;
+    }
+  }
+
+  .el-menu-item.is-active {
+    color: @bg-color-white;
+    background-color: @menu-bg-c2;
+    i {
+      color: @bg-color-white;
+    }
+  }
+  .el-menu-item-group__title {
+    padding: 0;
+  }
+}
+/* 左侧菜单样式 ---end--- */
